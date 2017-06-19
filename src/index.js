@@ -65,7 +65,7 @@ export default function StreamFile(options) {
     _.each(content, function (value, language) {
       if (options.type === 'template') {
         _.each(value, (templateVale, templateName) => {
-          self.push(createFile(`lib/emails/partials/${language}/${templateName}`, templateVale))
+          self.push(createFile(`${language}/${templateName}`, templateVale))
         })
       } else {
         self.push(createFile(`${language}.json`, JSON.stringify(value)))
@@ -76,24 +76,6 @@ export default function StreamFile(options) {
   });
 
   loadSpreadsheet(options, stream);
-  return stream.pipe(vfs.dest('./files'));
+  return stream.pipe(vfs.dest(options.path));
 }
 
-const optionsMessage = {
-  key: '1a4MVpRD3D0Q_VdtePwtT9_SFc4MAc4b2qC5CgiPbBOs',
-  sheet: 1,
-  languages: ['en', 'fr'],
-  keyColumn: 'key',
-  type: 'message'
-};
-
-const optionsTemplate = {
-  key: '1a4MVpRD3D0Q_VdtePwtT9_SFc4MAc4b2qC5CgiPbBOs',
-  sheet: 1,
-  languages: ['en', 'fr'],
-  keyColumn: 'key',
-  type: 'template'
-};
-
-StreamFile(optionsMessage);
-StreamFile(optionsTemplate);

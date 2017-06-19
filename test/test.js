@@ -1,7 +1,7 @@
 /*const assert = require('assert');*/
 
 import assert from 'assert';
-import StreamFile from '../index';
+import StreamFile from '../src/';
 
 import path from 'path';
 

@@ -10,7 +10,7 @@ describe('translations-from-spreadsheet', () => {
   it('should load google spreadsheet and create message files', async done => {
 
     const test = StreamFile({
-      key: '1a4MVpRD3D0Q_VdtePwtT9_SFc4MAc4b2qC5CgiPbBOs',
+      key: '',
       sheet: 1,
       languages: ['en', 'fr'],
       keyColumn: 'key',
@@ -18,7 +18,7 @@ describe('translations-from-spreadsheet', () => {
     });
 
     test.once('data', (file) => {
-      assert.equal(file.path, path.resolve('files/en.json'));
+      assert.equal(file.path, path.resolve(''));
       done()
     });
 
@@ -27,7 +27,7 @@ describe('translations-from-spreadsheet', () => {
   it('should load google spreadsheet and create template files', async done => {
 
     const test = StreamFile({
-      key: '1a4MVpRD3D0Q_VdtePwtT9_SFc4MAc4b2qC5CgiPbBOs',
+      key: '',
       sheet: 1,
       languages: ['en', 'fr'],
       keyColumn: 'key',
@@ -35,7 +35,7 @@ describe('translations-from-spreadsheet', () => {
     });
 
     test.once('data', (file) => {
-      assert.equal(file.path, path.resolve('files/lib/emails/partials/en/agent-created.hbs'));
+      assert.equal(file.path, path.resolve(''));
       done()
     });
 

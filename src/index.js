@@ -68,7 +68,7 @@ export default function StreamFile(options) {
           self.push(createFile(`${language}/${templateName}`, templateVale))
         })
       } else {
-        self.push(createFile(`${language}.json`, JSON.stringify(value,null,'\n')))
+        self.push(createFile(`${language}.json`, JSON.stringify(value,null,'\t')))
       }
     });
 
